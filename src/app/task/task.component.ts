@@ -58,4 +58,7 @@ onAddNewTask(){
   this.AddNewTask.emit();
 }
 
+onCancelTask(){
+  this.isAddingTask =false;
+}
 }
