@@ -19,7 +19,7 @@
       <p>Select user to task.</p>
   </ng-template> -->
   @if (selectedUser){
-    <app-task [id]="selectedUser.id" [name]="selectedUser.name"/> 
+    <app-task [userId]="selectedUser.id" [name]="selectedUser.name"/> 
   } @else {
     <p>Select user to task.</p>
   }
