@@ -28,7 +28,14 @@ private tasks=[
       'Prepare and describe an issue template which will help with project management',
     dueDate: '2024-06-15',
   },
-]
+];
+
+constructor(){
+    const tasks = localStorage.getItem('tasks');
+    if(tasks){
+        this.tasks= JSON.parse(tasks);
+    }
+}
 
     getUserTask(userId:string){
         return this.tasks.filter((task)=>task.userId===userId);
@@ -42,9 +49,16 @@ private tasks=[
             summary:taskData.summary,
             userId :userId!
         })
+        this.saveTask();
     }
 
     removeTask(id:string){
          this.tasks= this.tasks.filter((task)=>task.id!==id);
+         this.saveTask();
+
+    }
+
+    private saveTask(){
+        localStorage.setItem('tasks',JSON.stringify(this.tasks));
     }
 }
